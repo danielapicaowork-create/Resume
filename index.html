@@ -29,7 +29,6 @@
           'text-secondary': '#4a4a4a',
           'text-tertiary': '#7a7a7a',
           'bg-main': '#ffffff',
-          'divider': '#e5e5e5',
         }
       }
     }
@@ -45,28 +44,15 @@
     letter-spacing: -0.02em;
   }
   h2 {
-    font-size: 1.125rem;
-    cursor: pointer;
-    transition: color 0.2s ease;
-  }
-  h2:hover {
-    color: #000;
+    font-size: 1rem;
+    color: #1a1a1a;
+    margin-bottom: 0.75rem;
   }
 
-  /* Collapsible animation */
-  section > .collapsible-content {
-    max-height: 1000px;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-  }
-  section.collapsed > .collapsible-content {
-    max-height: 0;
-  }
-
-  /* Divider */
+  /* Keep spacing between sections but remove dividers */
   section {
-    border-bottom: 1px solid #e5e5e5;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.75rem;
   }
 
   /* 🌈 Animated Rainbow Download Button */
@@ -76,7 +62,7 @@
     padding: 8px 20px;
     font-size: 14px;
     font-weight: 500;
-    color: #333; /* dark grey text */
+    color: #333;
     background: transparent;
     border: none;
     border-radius: 10px;
@@ -89,7 +75,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    padding: 2px; /* stroke thickness */
+    padding: 2px;
     border-radius: 10px;
     background: linear-gradient(
       90deg,
@@ -106,7 +92,7 @@
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
-            mask-composite: exclude;
+    mask-composite: exclude;
     animation: rainbow 5s linear infinite;
     z-index: -1;
   }
@@ -136,11 +122,11 @@
       </div>
     </header>
 
-    <main class="space-y-10">
+    <main class="space-y-8">
 
       <!-- ABOUT -->
       <section>
-        <p class="leading-[1.8] text-text-secondary">
+        <p class="leading-[1.7] text-text-secondary">
           I’m a Senior Designer with over seven years of experience creating digital experiences across diverse roles in the industry.
           Passionate about design systems and operations, I strive to drive efficiency, consistency, and scalability while nurturing
           an empathetic culture that empowers teams to excel.
@@ -157,31 +143,27 @@
 
       <!-- EXPERIENCE -->
       <section>
-        <h2 class="text-text-primary toggle-btn">Work Experience ▾</h2>
-        <div class="collapsible-content mt-3 space-y-8">
+        <h2 class="text-text-primary">Work Experience</h2>
+        <div class="space-y-6">
           <div>
             <div class="text-text-tertiary mb-1">2023 — Present</div>
             <p class="text-text-primary font-medium">Senior Product Designer – Design System at <a href="https://www.soldo.com/en-eu/" class="text-[#0066cc] hover:underline">Soldo</a></p>
-            <p class="text-sm text-text-tertiary mb-2">London · Remote</p>
-            <p>
-              Contributing to the Experience Foundation Team to build and evolve the Prisma Design System. Leading design operations,
-              mentoring designers, establishing metrics, and ensuring scalable consistency across all levels.
-            </p>
+            <p class="text-sm text-text-tertiary mb-1">London · Remote</p>
+            <p>Contributing to the Experience Foundation Team to build and evolve the Prisma Design System. Leading design operations,
+              mentoring designers, establishing metrics, and ensuring scalable consistency across all levels.</p>
           </div>
 
           <div>
             <div class="text-text-tertiary mb-1">2022 — 2023</div>
             <p class="text-text-primary font-medium">UI Designer & Design System Contributor at <a href="https://www.soldo.com/en-eu/" class="text-[#0066cc] hover:underline">Soldo</a></p>
-            <p class="text-sm text-text-tertiary mb-2">London · Remote</p>
-            <p>
-              Designed interfaces for finance products and contributed to the federated design system model, improving cross-squad efficiency and UI consistency.
-            </p>
+            <p class="text-sm text-text-tertiary mb-1">London · Remote</p>
+            <p>Designed interfaces for finance products and contributed to the federated design system model, improving cross-squad efficiency and UI consistency.</p>
           </div>
 
           <div>
             <div class="text-text-tertiary mb-1">2017 — 2022</div>
             <p class="text-text-primary font-medium">UX/UI Designer at Play Consulting</p>
-            <p class="text-sm text-text-tertiary mb-2">London · Hybrid</p>
+            <p class="text-sm text-text-tertiary mb-1">London · Hybrid</p>
             <p>Worked with clients like PWC, Unilever, and NHS on enterprise learning and engagement platforms.</p>
           </div>
         </div>
@@ -189,66 +171,59 @@
 
       <!-- CERTIFICATIONS -->
       <section>
-        <h2 class="text-text-primary toggle-btn">Certifications ▾</h2>
-        <div class="collapsible-content mt-2">
-          <ul class="list-disc ml-5 space-y-2">
-            <li>"Advanced Design Systems" – Smashing Magazine (2025)</li>
-            <li>Make Design Systems People Want to Use – DS University (2024)</li>
-            <li>Generative AI for Everyone – DeepLearning.AI (2024)</li>
-            <li>Advanced Product Design – Figma Academy (2023)</li>
-            <li>Scaling Design Systems – Dan Mall (2023)</li>
-          </ul>
-        </div>
+        <h2 class="text-text-primary">Certifications</h2>
+        <ul class="list-disc ml-5 space-y-1.5 text-sm">
+          <li>"Advanced Design Systems" – Smashing Magazine (2025)</li>
+          <li>Make Design Systems People Want to Use – DS University (2024)</li>
+          <li>Generative AI for Everyone – DeepLearning.AI (2024)</li>
+          <li>Advanced Product Design – Figma Academy (2023)</li>
+          <li>Scaling Design Systems – Dan Mall (2023)</li>
+        </ul>
       </section>
 
       <!-- EDUCATION -->
       <section>
-        <h2 class="text-text-primary toggle-btn">Education ▾</h2>
-        <div class="collapsible-content mt-2">
-          <div class="text-text-tertiary mb-1">2009 — 2012</div>
-          <p class="text-text-primary font-medium">Bachelor’s Degree in Design</p>
-          <p class="text-sm text-text-tertiary">University of Aveiro</p>
-        </div>
+        <h2 class="text-text-primary">Education</h2>
+        <div class="text-text-tertiary mb-1">2009 — 2012</div>
+        <p class="text-text-primary font-medium">Bachelor’s Degree in Design</p>
+        <p class="text-sm text-text-tertiary">University of Aveiro</p>
       </section>
     </main>
   </div>
 
   <script>
-    // Collapsible animation
-    document.querySelectorAll(".toggle-btn").forEach((title) => {
-      title.addEventListener("click", () => {
-        const section = title.parentElement;
-        const content = section.querySelector(".collapsible-content");
-        section.classList.toggle("collapsed");
-        title.textContent = section.classList.contains("collapsed")
-          ? title.textContent.replace("▾", "▸")
-          : title.textContent.replace("▸", "▾");
-      });
-    });
-
-    // Generate PDF (trimmed)
+    // Generate compact PDF
     document.getElementById("download-btn").addEventListener("click", () => {
       const content = document.getElementById("profile-content").cloneNode(true);
 
-      // Keep only 3 entries per section
-      content.querySelectorAll("section").forEach((section) => {
+      // Fit only 3 entries per section
+      content.querySelectorAll("section").forEach(section => {
         const divs = section.querySelectorAll("div:not(:has(h2))");
-        if (divs.length > 3) {
-          divs.forEach((div, i) => i >= 3 && div.remove());
-        }
+        if (divs.length > 3) divs.forEach((div, i) => i >= 3 && div.remove());
         const lis = section.querySelectorAll("ul li");
-        if (lis.length > 3) {
-          lis.forEach((li, i) => i >= 3 && li.remove());
-        }
+        if (lis.length > 3) lis.forEach((li, i) => i >= 3 && li.remove());
+      });
+
+      // Compact styles for PDF export
+      content.style.fontSize = "12px";
+      content.style.lineHeight = "1.3";
+      content.querySelectorAll("section").forEach(s => {
+        s.style.marginBottom = "0.9rem";
+        s.style.paddingBottom = "0.9rem";
+      });
+      content.querySelectorAll("h2").forEach(h => {
+        h.style.fontSize = "0.9rem";
+        h.style.marginBottom = "0.5rem";
       });
 
       const opt = {
-        margin: 0.5,
+        margin: 0.25,
         filename: "Daniela-Picao-Portfolio.pdf",
-        image: { type: "jpeg", quality: 0.98 },
+        image: { type: "jpeg", quality: 1 },
         html2canvas: { scale: 2 },
         jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
       };
+
       html2pdf().from(content).set(opt).save();
     });
   </script>
