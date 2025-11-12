@@ -55,7 +55,7 @@ document.getElementById("download-btn")?.addEventListener("click", () => {
   });
 
   // Compact layout for single-page PDF
-  content.style.transform = "scale(0.9)";
+  content.style.transform = "scale(0.85)";
   content.style.transformOrigin = "top left";
   content.style.padding = "10px";
   content.style.width = "100%";
