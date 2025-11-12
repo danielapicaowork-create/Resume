@@ -43,27 +43,43 @@ document.querySelectorAll(".toggle-btn").forEach(title => {
   });
 });
 
-// PDF generation logic (keep if you want the button)
+// --- PDF generation (single-page compact version) ---
 document.getElementById("download-btn")?.addEventListener("click", () => {
+  // Clone content
   const content = document.getElementById("profile-content").cloneNode(true);
+
+  // Keep only 3 entries per section
   content.querySelectorAll("section").forEach(section => {
-    const divs = section.querySelectorAll("div:not(:has(h2))");
-    if (divs.length > 3) {
-      divs.forEach((div, i) => i >= 3 && div.remove());
-    }
-    const lis = section.querySelectorAll("ul li");
-    if (lis.length > 3) {
-      lis.forEach((li, i) => i >= 3 && li.remove());
-    }
+    const entries = section.querySelectorAll("div:not(:has(h2)), ul li");
+    entries.forEach((el, i) => i >= 3 && el.remove());
   });
 
+  // Compact layout for single-page PDF
+  content.style.transform = "scale(0.9)";
+  content.style.transformOrigin = "top left";
+  content.style.padding = "10px";
+  content.style.width = "100%";
+  content.style.lineHeight = "1.3";
+
+  // PDF options — single page, higher scale for readability
   const opt = {
-    margin: 0.5,
+    margin: 0.25,
     filename: "Daniela-Picao-Portfolio.pdf",
-    image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+    image: { type: "jpeg", quality: 1 },
+    html2canvas: {
+      scale: 3, // sharper rendering
+      scrollY: 0
+    },
+    jsPDF: {
+      unit: "in",
+      format: "a4",
+      orientation: "portrait"
+    },
+    pagebreak: { mode: ["avoid-all", "css", "legacy"] }
   };
+
+  // Generate the PDF
   html2pdf().from(content).set(opt).save();
 });
+
 </script>
