@@ -1,71 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rainbow Border Button</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #fff;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Daniela Picão | CV</title>
 
-    .rainbow-btn {
-      position: relative;
-      padding: 12px 28px;
-      font-size: 16px;
-      font-weight: 500;
-      color: #333; /* dark grey text */
-      background: transparent;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      z-index: 1;
-      overflow: hidden;
-    }
+<meta name="description" content="Portfolio of Daniela Picão, Sr. Product Designer in London, UK. Passionate about design systems and operations." />
+<meta name="keywords" content="Daniela Picão, Product Design, Design Systems, UX, UI, London" />
+<meta name="author" content="Daniela Picão" />
+<meta property="og:title" content="Daniela Picão | CV" />
+<meta property="og:description" content="Senior Designer with over a decade of experience creating digital experiences. Focused on design systems, efficiency, and empathy." />
+<meta property="og:image" content="images/profilePhoto.jpg" />
+<meta property="og:url" content="https://bento.me/danielapicao" />
 
-    /* The animated rainbow border */
-    .rainbow-btn::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      padding: 2px; /* border thickness */
-      border-radius: 10px;
-      background: linear-gradient(
-        90deg,
-        #ff0055,
-        #ffae00,
-        #00ff6a,
-        #00c3ff,
-        #7a00ff,
-        #ff00c8,
-        #ff0055
-      );
-      background-size: 400% 400%;
-      -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-              mask-composite: exclude;
-      animation: rainbow 5s linear infinite;
-      z-index: -1;
-    }
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    @keyframes rainbow {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 400% 50%; }
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        },
+        colors: {
+          'text-primary': '#1a1a1a',
+          'text-secondary': '#4a4a4a',
+          'text-tertiary': '#7a7a7a',
+          'bg-main': '#ffffff',
+          'divider': '#e5e5e5',
+        }
+      }
     }
+  }
+</script>
 
-    /* Hover state for slight brightness */
-    .rainbow-btn:hover::before {
-      filter: brightness(1.2);
-    }
-  </style>
+<style>
+  body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  h2:hover {
+    color: #000;
+  }
+
+  /* Collapsible animation */
+  section > .collapsible-content {
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  section.collapsed > .collapsible-content {
+    max-height: 0;
+  }
+
+  /* Divider */
+  section {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 1.5rem;
+  }
+
+  /* 🌈 Animated Rainbow Download Button */
+  #download-btn {
+    position: relative;
+    margin-top: 1.5rem;
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333; /* dark grey text */
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  #download-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px; /* stroke thickness */
+    border-radius: 10px;
+    background: linear-gradient(
+      90deg,
+      #ff0055,
+      #ffae00,
+      #00ff6a,
+      #00c3ff,
+      #7a00ff,
+      #ff00c8,
+      #ff0055
+    );
+    background-size: 400% 400%;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    animation: rainbow 5s linear infinite;
+    z-index: -1;
+  }
+
+  @keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 400% 50%; }
+  }
+
+  #download-btn:hover::before {
+    filter: brightness(1.2);
+  }
+</style>
 </head>
-<body>
-  <button class="rainbow-btn">Generate</button>
+
+<body class="bg-bg-main text-text-secondary text-base leading-relaxed">
+
+  <div id="profile-content" class="max-w-[650px] mx-auto my-20 px-6 sm:px-0">
+    <header class="mb-12">
+      <div class="flex gap-6 items-center">
+        <img src="images/profilePhoto.jpg" alt="Daniela Picão" class="w-[96px] h-[96px] rounded-full shadow-md" loading="lazy" />
+        <div>
+          <h1 class="text-2xl mb-1 text-text-primary">Daniela Picão</h1>
+          <p class="text-text-secondary">Sr. Product Designer in London, UK</p>
+          <a href="https://bento.me/danielapicao" class="text-[#0066cc] text-sm hover:underline">Portfolio ↗</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="space-y-10">
+
+      <!-- ABOUT -->
+      <section>
+        <p class="leading-[1.8] text-text-secondary">
+          I’m a Senior Designer with over seven years of experience creating digital experiences across diverse roles in the industry.
+          Passionate about design systems and operations, I strive to drive efficiency, consistency, and scalability while nurturing
+          an empathetic culture that empowers teams to excel.
+        </p>
+        <button id="download-btn">📄 Download CV</button>
+      </section>
+
+      <!-- CONTACT -->
+      <section>
+        <div><span class="text-text-tertiary w-[100px] inline-block">Portfolio</span> <a href="https://bento.me/danielapicao" class="text-[#0066cc] hover:underline">danielapicao ↗</a></div>
+        <div><span class="text-text-tertiary w-[100px] inline-block">LinkedIn</span> <a href="https://linkedin.com/in/danielapicao" class="text-[#0066cc] hover:underline">danielapicao ↗</a></div>
+        <div><span class="text-text-tertiary w-[100px] inline-block">Email</span> <a href="mailto:danielapicao.work@gmail.com" class="text-[#0066cc] hover:underline">danielapicao.work@gmail.com ↗</a></div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section>
+        <h2 class="text-text-primary toggle-btn">Work Experience ▾</h2>
+        <div class="collapsible-content mt-3 space-y-8">
+          <div>
+            <div class="text-text-tertiary mb-1">2023 — Present</div>
+            <p class="text-text-primary font-medium">Senior Product Designer – Design System at <a href="https://www.soldo.com/en-eu/" class="text-[#0066cc] hover:underline">Soldo</a></p>
+            <p class="text-sm text-text-tertiary mb-2">London · Remote</p>
+            <p>
+              Contributing to the Experience Foundation Team to build and evolve the Prisma Design System. Leading design operations,
+              mentoring designers, establishing metrics, and ensuring scalable consistency across all levels.
+            </p>
+          </div>
+
+          <div>
+            <div class="text-text-tertiary mb-1">2022 — 2023</div>
+            <p class="text-text-primary font-medium">UI Designer & Design System Contributor at <a href="https://www.soldo.com/en-eu/" class="text-[#0066cc] hover:underline">Soldo</a></p>
+            <p class="text-sm text-text-tertiary mb-2">London · Remote</p>
+            <p>
+              Designed interfaces for finance products and contributed to the federated design system model, improving cross-squad efficiency and UI consistency.
+            </p>
+          </div>
+
+          <div>
+            <div class="text-text-tertiary mb-1">2017 — 2022</div>
+            <p class="text-text-primary font-medium">UX/UI Designer at Play Consulting</p>
+            <p class="text-sm text-text-tertiary mb-2">London · Hybrid</p>
+            <p>Worked with clients like PWC, Unilever, and NHS on enterprise learning and engagement platforms.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS -->
+      <section>
+        <h2 class="text-text-primary toggle-btn">Certifications ▾</h2>
+        <div class="collapsible-content mt-2">
+          <ul class="list-disc ml-5 space-y-2">
+            <li>"Advanced Design Systems" – Smashing Magazine (2025)</li>
+            <li>Make Design Systems People Want to Use – DS University (2024)</li>
+            <li>Generative AI for Everyone – DeepLearning.AI (2024)</li>
+            <li>Advanced Product Design – Figma Academy (2023)</li>
+            <li>Scaling Design Systems – Dan Mall (2023)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section>
+        <h2 class="text-text-primary toggle-btn">Education ▾</h2>
+        <div class="collapsible-content mt-2">
+          <div class="text-text-tertiary mb-1">2009 — 2012</div>
+          <p class="text-text-primary font-medium">Bachelor’s Degree in Design</p>
+          <p class="text-sm text-text-tertiary">University of Aveiro</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Collapsible animation
+    document.querySelectorAll(".toggle-btn").forEach((title) => {
+      title.addEventListener("click", () => {
+        const section = title.parentElement;
+        const content = section.querySelector(".collapsible-content");
+        section.classList.toggle("collapsed");
+        title.textContent = section.classList.contains("collapsed")
+          ? title.textContent.replace("▾", "▸")
+          : title.textContent.replace("▸", "▾");
+      });
+    });
+
+    // Generate PDF (trimmed)
+    document.getElementById("download-btn").addEventListener("click", () => {
+      const content = document.getElementById("profile-content").cloneNode(true);
+
+      // Keep only 3 entries per section
+      content.querySelectorAll("section").forEach((section) => {
+        const divs = section.querySelectorAll("div:not(:has(h2))");
+        if (divs.length > 3) {
+          divs.forEach((div, i) => i >= 3 && div.remove());
+        }
+        const lis = section.querySelectorAll("ul li");
+        if (lis.length > 3) {
+          lis.forEach((li, i) => i >= 3 && li.remove());
+        }
+      });
+
+      const opt = {
+        margin: 0.5,
+        filename: "Daniela-Picao-Portfolio.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+      };
+      html2pdf().from(content).set(opt).save();
+    });
+  </script>
 </body>
 </html>
