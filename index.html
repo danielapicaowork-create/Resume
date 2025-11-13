@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Daniela Picão | Resume</title>
 
 <meta name="description" content="Portfolio of Daniela Picão, Sr. Product Designer in London, UK. Passionate about design systems and operations." />
@@ -36,62 +36,88 @@
 </script>
 
 <style>
-  body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
-  h1,h2,h3 { font-weight:600; letter-spacing:-0.02em; }
-  h2 { font-size:1rem; color:#1a1a1a; margin-bottom:0.75rem; }
-
-  /* Sections spacing (no dividers) */
-  section { padding-bottom:1.25rem; margin-bottom:1.75rem; }
-
-  /* Thumbnails strip */
-  .thumbnails { display:flex; gap:12px; align-items:center; }
-  .thumbnails.scrollable { overflow-x:auto; -webkit-overflow-scrolling:touch; scroll-snap-type:x mandatory; padding-bottom:6px; }
-  .thumbnails img { flex-shrink:0; height:112px; border-radius:8px; object-fit:cover; transition:transform .22s ease, filter .22s ease; }
-  /* approximate 2.5 visible on wide screens: each thumbnail ~38% width */
-  @media (min-width:900px) {
-    .thumbnails.scrollable img { width:38%; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   }
-  @media (max-width:899px) {
-    .thumbnails.scrollable img { width:60%; }
+  h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
-  .thumbnails:not(.scrollable) img { width:auto; margin-right:12px; } /* left-aligned images */
+  h2 {
+    font-size: 1rem;
+    color: #1a1a1a;
+    margin-bottom: 0.75rem;
+  }
 
-  .thumbnails img:hover { transform:scale(1.03); filter:brightness(1.03); cursor:pointer; }
+  /* Keep spacing between sections but remove dividers */
+  section {
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.75rem;
+  }
 
-  /* Modal */
-  #image-modal { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(25,25,25,0.85); z-index:50; opacity:0; pointer-events:none; transition:opacity .35s ease; }
-  #image-modal.open { opacity:1; pointer-events:auto; }
-  #modal-image { max-height:90vh; max-width:90vw; border-radius:10px; box-shadow:0 20px 50px rgba(0,0,0,.6); transform:scale(.96); opacity:0; transition:transform .35s cubic-bezier(.22,.9,.35,1), opacity .35s ease; }
-  #image-modal.open #modal-image { transform:scale(1); opacity:1; }
+  /* 🌈 Animated Rainbow Download Button */
+  #download-btn {
+    position: relative;
+    margin-top: 0.8rem;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 1;
+    overflow: hidden;
+  }
 
-  .modal-btn { position:absolute; top:50%; transform:translateY(-50%); color:#fff; font-size:28px; background:transparent; border:none; cursor:pointer; padding:12px; border-radius:8px; transition:transform .18s ease; }
-  .modal-btn:active { transform:translateY(-50%) scale(.96); }
-  #modal-close { top:28px; right:28px; transform:none; font-size:34px; }
+  #download-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: 10px;
+    background: linear-gradient(
+      90deg,
+      #ff0055,
+      #ffae00,
+      #00ff6a,
+      #00c3ff,
+      #7a00ff,
+      #ff00c8,
+      #ff0055
+    );
+    background-size: 400% 400%;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: rainbow 5s linear infinite;
+    z-index: -1;
+  }
 
-  /* subtle entrance for experience items (then JS will toggle 'in' class) */
-  .experience-item { opacity:0; transform:translateY(10px); transition:opacity .45s ease, transform .45s ease; }
-  .experience-item.in { opacity:1; transform:translateY(0); }
+  @keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 400% 50%; }
+  }
 
-  /* small utilities */
-  .muted { color: #7a7a7a; font-size:0.95rem; }
-  .company-link { color:#0066cc; text-decoration:underline; text-underline-offset:3px; }
-
-  /* hide native scrollbars for nicer look */
-  .thumbnails.scrollable::-webkit-scrollbar { height:8px; }
-  .thumbnails.scrollable::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 8px; }
+  #download-btn:hover::before {
+    filter: brightness(1.2);
+  }
 </style>
 </head>
 
 <body class="bg-bg-main text-text-secondary text-base leading-relaxed">
 
-  <div id="profile-content" class="max-w-[820px] mx-auto my-16 px-6 sm:px-0">
+  <div id="profile-content" class="max-w-[650px] mx-auto my-20 px-6 sm:px-0">
     <header class="mb-12">
       <div class="flex gap-6 items-center">
         <img src="images/profilePhoto.jpg" alt="Daniela Picão" class="w-[132px] h-[132px] rounded-full shadow-md" loading="lazy" />
         <div>
           <h1 class="text-2xl mb-1 text-text-primary">Daniela Picão</h1>
           <p class="text-text-secondary">Sr. Product Designer in London, UK</p>
-          <button id="download-btn" class="mt-2 px-4 py-2 rounded-md border">Download resume</button>
+          <button id="download-btn">Download resume</button>
         </div>
       </div>
     </header>
@@ -99,16 +125,16 @@
     <main class="space-y-8">
 
       <!-- ABOUT -->
-      <section id="about">
+      <section>
         <p class="leading-[1.7] text-text-secondary">
-          I’m a Senior Designer with over a decade of experience creating digital experiences across diverse roles in the industry.
+          I’m a Senior Designer with over seven years of experience creating digital experiences across diverse roles in the industry.
           Passionate about design systems and operations, I strive to drive efficiency, consistency, and scalability while nurturing
           an empathetic culture that empowers teams to excel.
         </p>
       </section>
 
       <!-- CONTACT -->
-      <section id="contact">
+      <section>
        <div class="mb-4">
         <span class="text-text-tertiary w-[208px] inline-block">Portfolio</span>
         <a href="https://bento.me/danielapicao" class="text-[#0066cc] hover:underline">danielapicao ↗</a>
@@ -125,170 +151,92 @@
        </div>
       </section>
 
-      <!-- ========= WORK EXPERIENCE ========= -->
-      <section id="experience">
+
+      <!-- EXPERIENCE -->
+      <section>
         <h2 class="text-text-primary">Work Experience</h2>
-
-        <!-- 1) Senior Product Designer - Soldo (2023 — Now) -->
-        <article class="experience-item mt-4">
-          <div class="muted mb-1">2023 — Now</div>
-          <div class="mb-1 text-text-primary font-medium">
-            Senior Product Designer - Design System at
-            <a href="https://www.soldo.com/en-eu/" class="company-link" target="_blank" rel="noreferrer">Soldo</a>
-          </div>
-          <div class="muted mb-2">London | Remote</div>
-          <div class="whitespace-pre-line mb-3 text-text-secondary">
-Soldo is a cloud-based B2B SaaS spend management platform available via the web console and mobile app, that empowers finance professionals to manage, track, and monitor company and employee expenses efficiently.
-
-Within this dynamic ecosystem, I contribute as part of the Experience Foundation Team, focusing on building, evolving, and promoting the Prisma Design System to drive efficiency and ensure consistency across all levels.
-
-Key contributions include:
-
-• Leading projects and mentoring designers to boost team productivity.
-• Establishing and tracking design system metrics.
-• Optimising design operations, workflows, and documentation for streamlined project execution.
-• Documenting and standardising design system processes to enhance team efficiency.
-• Providing resources like patterns, best practices, and templates to simplify processes and save time.
+        <div class="space-y-6">
+          <div>
+            <div class="text-text-tertiary mb-1">2023 — Present</div>
+            <p class="text-text-primary font-medium">Senior Product Designer – Design System at <a href="https://www.soldo.com/en-eu/" class="text-[#0066cc] hover:underline">Soldo</a></p>
+            <p class="text-sm text-text-tertiary mb-1">London · Hybrid</p>
+            <p>Contributing to the Experience Foundation Team to build and evolve the Prisma Design System. Leading design operations,
+              mentoring designers, establishing metrics, and ensuring scalable consistency across all levels.</p>
           </div>
 
-          <!-- thumbnails: 3 images => scrollable strip -->
-          <div class="thumbnails scrollable" data-group="0">
-            <img src="/content/media/Senior-Product-Designer-Design-System-at-Soldo-1.png" data-index="0" alt="Soldo sample 1" loading="lazy" />
-            <img src="/content/media/Senior-Product-Designer-Design-System-at-Soldo-2.png" data-index="1" alt="Soldo sample 2" loading="lazy" />
-            <img src="/content/media/Senior-Product-Designer-Design-System-at-Soldo-3.png" data-index="2" alt="Soldo sample 3" loading="lazy" />
-          </div>
-        </article>
-
-        <!-- 2) UI Designer & Design System contributor at Soldo (2022 — 2023) -->
-        <article class="experience-item mt-8">
-          <div class="muted mb-1">2022 — 2023</div>
-          <div class="mb-1 text-text-primary font-medium">
-            UI Designer & Design System contributor at
-            <a href="https://www.soldo.com/en-eu/" class="company-link" target="_blank" rel="noreferrer">Soldo</a>
-          </div>
-          <div class="muted mb-2">London | Remote</div>
-          <div class="whitespace-pre-line mb-3 text-text-secondary">
-Performed two main roles: UI Designer and Design System contributor. As a UI Designer in the Finance and Accounting squad, I created user interfaces that met the needs of both the business and users, collaborating with Front-end Developers for seamless implementation.
-
-On the Design System side, I contributed to a federated model by strategically architecting component libraries, comprehensive design system documentation, and assisting fellow designers in streamlining their workflows and optimising their design processes.
+          <div>
+            <div class="text-text-tertiary mb-1">2022 — 2023</div>
+            <p class="text-text-primary font-medium">UI Designer & Design System Contributor at <a href="https://www.soldo.com/en-eu/" class="text-[#0066cc] hover:underline">Soldo</a></p>
+            <p class="text-sm text-text-tertiary mb-1">London · Remote</p>
+            <p>Designed interfaces for finance products and contributed to the federated design system model, improving cross-squad efficiency and UI consistency.</p>
           </div>
 
-          <!-- thumbnails: 3 images => scrollable strip -->
-          <div class="thumbnails scrollable" data-group="1">
-            <img src="/content/media/UI-Designer-and-Design-System-contributor-at-Soldo-1.png" data-index="0" alt="Soldo UI sample 1" loading="lazy" />
-            <img src="/content/media/UI-Designer-and-Design-System-contributor-at-Soldo-2.png" data-index="1" alt="Soldo UI sample 2" loading="lazy" />
-            <img src="/content/media/UI-Designer-and-Design-System-contributor-at-Soldo-3.png" data-index="2" alt="Soldo UI sample 3" loading="lazy" />
+          <div>
+            <div class="text-text-tertiary mb-1">2017 — 2022</div>
+            <p class="text-text-primary font-medium">UX/UI Designer at Play Consulting</p>
+            <p class="text-sm text-text-tertiary mb-1">London · Hybrid</p>
+            <p>Worked with clients like PWC, Unilever, and NHS on enterprise learning and engagement platforms.</p>
           </div>
-        </article>
-
-        <!-- 3) UX/UI Designer at Play Consulting (2017 — 2022) -->
-        <article class="experience-item mt-8">
-          <div class="muted mb-1">2017 — 2022</div>
-          <div class="mb-1 text-text-primary font-medium">UX/UI Designer at Play Consulting</div>
-          <div class="muted mb-2">London | Hybrid</div>
-          <div class="whitespace-pre-line mb-3 text-text-secondary">
-Play was a VC-backed startup founded by former PlayStation executives, specialised in helping companies rapidly shape, launch, and validate product propositions. By applying game theory, we drove early adoption and high user engagement.
-
-I collaborated with clients such as PWC, Unilever, Mars, NHS, and KPMG on B2B and B2C propositions, delivering native and progressive mobile app experiences, as well as prototypes to secure project buy-in.
-          </div>
-
-          <!-- thumbnails: 5 images => scrollable strip -->
-          <div class="thumbnails scrollable" data-group="2">
-            <img src="/content/media/UXUI-Designer-at-Play-Consulting-1.png" data-index="0" alt="Play sample 1" loading="lazy" />
-            <img src="/content/media/UXUI-Designer-at-Play-Consulting-2.png" data-index="1" alt="Play sample 2" loading="lazy" />
-            <img src="/content/media/UXUI-Designer-at-Play-Consulting-3.png" data-index="2" alt="Play sample 3" loading="lazy" />
-            <img src="/content/media/UXUI-Designer-at-Play-Consulting-4.png" data-index="3" alt="Play sample 4" loading="lazy" />
-            <img src="/content/media/UXUI-Designer-at-Play-Consulting-5.png" data-index="4" alt="Play sample 5" loading="lazy" />
-          </div>
-        </article>
-
-        <!-- 4) Muugen Studio (2016 — 2017) - no attachments -->
-        <article class="experience-item mt-8">
-          <div class="muted mb-1">2016 — 2017</div>
-          <div class="mb-1 text-text-primary font-medium">
-            Graphic Designer / Producer / Video Editor Freelancer at
-            <a href="https://vimeo.com/muugenstudios" class="company-link" target="_blank" rel="noreferrer">Muugen Studio</a>
-          </div>
-          <div class="muted mb-2">London | Remote</div>
-          <div class="mb-3 text-text-secondary">Spent a year gaining experience across various roles in the digital/creative industry, including video editing, production, and applying graphic design expertise to assist clients with brand identity development.</div>
-        </article>
-
-        <!-- 5) Fuse (2014 — 2016) -->
-        <article class="experience-item mt-8">
-          <div class="muted mb-1">2014 — 2016</div>
-          <div class="mb-1 text-text-primary font-medium">Web Designer at Fuse</div>
-          <div class="muted mb-2">London | On-site</div>
-          <div class="mb-3 text-text-secondary">The Fuse learning platform is a cloud-based B2B, cross-platform solution designed to enhance workforce capabilities through knowledge sharing and collaboration. As part of the Implementation Team, I designed and coded bespoke user experiences on clients’ instances.</div>
-        </article>
-
-        <!-- 6) Fuse - Digital Media Designer (2013 — 2014) -->
-        <article class="experience-item mt-8">
-          <div class="muted mb-1">2013 — 2014</div>
-          <div class="mb-1 text-text-primary font-medium">Digital Media Designer at Fuse</div>
-          <div class="muted mb-2">London | On-site</div>
-          <div class="mb-3 text-text-secondary">Worked on digital content (graphics, videos, infographics, ads, presentations, animations) tailored to Fuse clients and supported marketing campaigns.</div>
-        </article>
-
-        <!-- 7) Tom Price internship (2012) -->
-        <article class="experience-item mt-8">
-          <div class="muted mb-1">2012</div>
-          <div class="mb-1 text-text-primary font-medium">
-            Creative Assistant Internship at
-            <a href="http://www.tom-price.com/synthesis-detail" class="company-link" target="_blank" rel="noreferrer">Tom Price</a>
-          </div>
-          <div class="muted mb-2">London | On-site</div>
-          <div class="mb-3 text-text-secondary">
-I had the honor of joining Tom Price’s team, contributing to large-scale projects for private clients and global brands, while gaining hands-on experience in the creative process, including material selection and transformation.
-
-One standout project was the PP Trysting Tree at Bloomberg London – a complex installation spanning four glass meeting rooms.
-          </div>
-
-          <!-- thumbnails: many images => scrollable -->
-          <div class="thumbnails scrollable" data-group="6">
-            <img src="/content/media/Creative-Assistant-Internship-at-Tom-Price-1.jpg" data-index="0" alt="Tom Price 1" loading="lazy" />
-            <img src="/content/media/Creative-Assistant-Internship-at-Tom-Price-2.jpg" data-index="1" alt="Tom Price 2" loading="lazy" />
-            <img src="/content/media/Creative-Assistant-Internship-at-Tom-Price-3.jpg" data-index="2" alt="Tom Price 3" loading="lazy" />
-            <img src="/content/media/Creative-Assistant-Internship-at-Tom-Price-4.jpg" data-index="3" alt="Tom Price 4" loading="lazy" />
-            <img src="/content/media/Creative-Assistant-Internship-at-Tom-Price-5.jpg" data-index="4" alt="Tom Price 5" loading="lazy" />
-            <img src="/content/media/Creative-Assistant-Internship-at-Tom-Price-6.jpg" data-index="5" alt="Tom Price 6" loading="lazy" />
-            <img src="/content/media/Creative-Assistant-Internship-at-Tom-Price-7.jpg" data-index="6" alt="Tom Price 7" loading="lazy" />
-            <img src="/content/media/Creative-Assistant-Internship-at-Tom-Price-8.jpg" data-index="7" alt="Tom Price 8" loading="lazy" />
-          </div>
-        </article>
-
+        </div>
       </section>
 
       <!-- CERTIFICATIONS -->
-      <section id="certifications">
+      <section>
         <h2 class="text-text-primary">Certifications</h2>
-        <ul class="list-disc ml-5 space-y-1.5 text-sm mt-3">
-          <li>2024 – Make Design Systems People Want to Use – Design System University</li>
-          <li>2024 – Workshop Design System Planning & Process – Into Design Systems</li>
-          <li>2024 – Generative AI for Everyone – DeepLearning.AI</li>
-          <li>2023 – Advanced Product Design Tactics – Ridd, Figma Academy</li>
-          <li>2023 – Scaling Design Systems – Dan Mall</li>
+        <ul class="list-disc ml-5 space-y-1.5 text-sm">
+          <li>"Advanced Design Systems" – Smashing Magazine (2025)</li>
+          <li>Make Design Systems People Want to Use – DS University (2024)</li>
+          <li>Generative AI for Everyone – DeepLearning.AI (2024)</li>
+          <li>Advanced Product Design – Figma Academy (2023)</li>
+          <li>Scaling Design Systems – Dan Mall (2023)</li>
         </ul>
       </section>
 
       <!-- EDUCATION -->
-      <section id="education">
+      <section>
         <h2 class="text-text-primary">Education</h2>
-        <div class="text-text-tertiary mb-1 mt-3">2009 — 2012</div>
-        <p class="text-text-primary font-medium">Bachelor's Degree in Design</p>
+        <div class="text-text-tertiary mb-1">2009 — 2012</div>
+        <p class="text-text-primary font-medium">Bachelor’s Degree in Design</p>
         <p class="text-sm text-text-tertiary">University of Aveiro</p>
       </section>
-
     </main>
   </div>
 
-  <!-- MODAL (single global element reused by JS) -->
-  <div id="image-modal" class="">
-    <button id="modal-close" aria-label="Close">×</button>
-    <button id="modal-prev" aria-label="Previous">&#10094;</button>
-    <img id="modal-image" src="" alt="Expanded view" />
-    <button id="modal-next" aria-label="Next">&#10095;</button>
-  </div>
+  <script>
+    // Generate compact PDF
+    document.getElementById("download-btn").addEventListener("click", () => {
+      const content = document.getElementById("profile-content").cloneNode(true);
 
-  <script src="script.js"></script>
+      // Fit only 3 entries per section
+      content.querySelectorAll("section").forEach(section => {
+        const divs = section.querySelectorAll("div:not(:has(h2))");
+        if (divs.length > 3) divs.forEach((div, i) => i >= 3 && div.remove());
+        const lis = section.querySelectorAll("ul li");
+        if (lis.length > 3) lis.forEach((li, i) => i >= 3 && li.remove());
+      });
+
+      // Compact styles for PDF export
+      content.style.fontSize = "12px";
+      content.style.lineHeight = "1.3";
+      content.querySelectorAll("section").forEach(s => {
+        s.style.marginBottom = "0.9rem";
+        s.style.paddingBottom = "0.9rem";
+      });
+      content.querySelectorAll("h2").forEach(h => {
+        h.style.fontSize = "0.9rem";
+        h.style.marginBottom = "0.5rem";
+      });
+
+      const opt = {
+        margin: 0.25,
+        filename: "Daniela-Picao-Portfolio.pdf",
+        image: { type: "jpeg", quality: 1 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+      };
+
+      html2pdf().from(content).set(opt).save();
+    });
+  </script>
 </body>
 </html>
