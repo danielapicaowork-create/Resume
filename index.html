@@ -1,116 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Daniela Picão | Resume</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniela Picão | Resume</title>
+  <meta name="description" content="Portfolio of Daniela Picão, Sr. Product Designer in London, UK. Passionate about design systems and operations." />
+  <meta name="keywords" content="Daniela Picão, Product Design, Design Systems, UX, UI, London" />
+  <meta name="author" content="Daniela Picão" />
+  <meta property="og:title" content="Daniela Picão | Resume" />
+  <meta property="og:description" content="Senior Designer with over a decade of experience creating digital experiences. Focused on design systems, efficiency, and empathy." />
+  <meta property="og:image" content="images/profilePhoto.jpg" />
+  <meta property="og:url" content="https://bento.me/danielapicao" />
 
-<meta name="description" content="Portfolio of Daniela Picão, Sr. Product Designer in London, UK. Passionate about design systems and operations." />
-<meta name="keywords" content="Daniela Picão, Product Design, Design Systems, UX, UI, London" />
-<meta name="author" content="Daniela Picão" />
-<meta property="og:title" content="Daniela Picão | Resume" />
-<meta property="og:description" content="Senior Designer with over a decade of experience creating digital experiences. Focused on design systems, efficiency, and empathy." />
-<meta property="og:image" content="images/profilePhoto.jpg" />
-<meta property="og:url" content="https://bento.me/danielapicao" />
+  <link rel="icon" href="images/favicon-32x32.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-<link rel="icon" href="images/favicon-32x32.png" type="image/png" />
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        },
-        colors: {
-          'text-primary': '#1a1a1a',
-          'text-secondary': '#4a4a4a',
-          'text-tertiary': '#7a7a7a',
-          'bg-main': '#ffffff',
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          },
+          colors: {
+            'text-primary': '#1a1a1a',
+            'text-secondary': '#4a4a4a',
+            'text-tertiary': '#7a7a7a',
+            'bg-main': '#ffffff',
+          }
         }
       }
     }
-  }
-</script>
+  </script>
 
-<style>
-  body {
-    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  }
-  h1, h2, h3 {
-    font-weight: 600;
-    letter-spacing: -0.02em;
-  }
-  h2 {
-    font-size: 1rem;
-    color: #1a1a1a;
-    margin-bottom: 0.75rem;
-  }
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 1rem;
+      color: #1a1a1a;
+      margin-bottom: 0.75rem;
+    }
+    section {
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
 
-  /* Keep spacing between sections but remove dividers */
-  section {
-    padding-bottom: 1.25rem;
-    margin-bottom: 1.75rem;
-  }
-
-  /* 🌈 Animated Rainbow Download Button */
-  #download-btn {
-    position: relative;
-    margin-top: 0.8rem;
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-    background: transparent;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    z-index: 1;
-    overflow: hidden;
-  }
-
-  #download-btn::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    padding: 2px;
-    border-radius: 10px;
-    background: linear-gradient(
-      90deg,
-      #ff0055,
-      #ffae00,
-      #00ff6a,
-      #00c3ff,
-      #7a00ff,
-      #ff00c8,
-      #ff0055
-    );
-    background-size: 400% 400%;
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    animation: rainbow 5s linear infinite;
-    z-index: -1;
-  }
-
-  @keyframes rainbow {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 400% 50%; }
-  }
-
-  #download-btn:hover::before {
-    filter: brightness(1.2);
-  }
-</style>
+    /* 🌈 Animated Rainbow Download Button */
+    #download-btn {
+      position: relative;
+      margin-top: 0.8rem;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+      background: transparent;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 1;
+      overflow: hidden;
+    }
+    #download-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2px;
+      border-radius: 10px;
+      background: linear-gradient(
+        90deg,
+        #ff0055,
+        #ffae00,
+        #00ff6a,
+        #00c3ff,
+        #7a00ff,
+        #ff00c8,
+        #ff0055
+      );
+      background-size: 400% 400%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: rainbow 5s linear infinite;
+      z-index: -1;
+    }
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 400% 50%; }
+    }
+    #download-btn:hover::before {
+      filter: brightness(1.2);
+    }
+  </style>
 </head>
 
 <body class="bg-bg-main text-text-secondary text-base leading-relaxed">
-
   <div id="profile-content" class="max-w-[650px] mx-auto my-20 px-6 sm:px-0">
+
     <header class="mb-12">
       <div class="flex gap-6 items-center">
         <img src="images/profilePhoto.jpg" alt="Daniela Picão" class="w-[132px] h-[132px] rounded-full" loading="lazy" />
@@ -135,107 +127,152 @@
 
       <!-- CONTACT -->
       <section>
-       <div class="mb-4">
-        <span class="text-text-tertiary w-[208px] inline-block">Portfolio</span>
-        <a href="https://bento.me/danielapicao" class="text-[#0066cc] hover:underline">danielapicao ↗</a>
-       </div>
-
-       <div class="mb-4">
-        <span class="text-text-tertiary w-[208px] inline-block">LinkedIn</span>
-        <a href="https://linkedin.com/in/danielapicao" class="text-[#0066cc] hover:underline">danielapicao ↗</a>
-       </div>
-
-       <div>
-        <span class="text-text-tertiary w-[208px] inline-block">Email</span>
-        <a href="mailto:danielapicao.work@gmail.com" class="text-[#0066cc] hover:underline">danielapicao.work@gmail.com ↗</a>
-       </div>
+        <div class="mb-4">
+          <span class="text-text-tertiary w-[208px] inline-block">Portfolio</span>
+          <a href="https://bento.me/danielapicao" class="text-[#0066cc] hover:underline">danielapicao ↗</a>
+        </div>
+        <div class="mb-4">
+          <span class="text-text-tertiary w-[208px] inline-block">LinkedIn</span>
+          <a href="https://linkedin.com/in/danielapicao" class="text-[#0066cc] hover:underline">danielapicao ↗</a>
+        </div>
+        <div>
+          <span class="text-text-tertiary w-[208px] inline-block">Email</span>
+          <a href="mailto:danielapicao.work@gmail.com" class="text-[#0066cc] hover:underline">danielapicao.work@gmail.com ↗</a>
+        </div>
       </section>
 
       <!-- EXPERIENCE -->
-<section>
-  <h2 class="text-text-primary mb-5">Work Experience</h2>
-  
-  <div class="space-y-10">
-
-    <!-- Experience item Soldo 2-->
-    <div>
-      <div class="flex flex-col sm:flex-row sm:items-start sm:gap-6">
-        <div class="text-text-tertiary w-[190px] shrink-0 mb-1 sm:mb-0">2023 — Present</div>
-        <div class="flex-1">
-          <p class="text-text-primary font-medium leading-snug">
-            Senior Product Designer - Design System at 
-            <a href="https://www.soldo.com/en-eu/" class="text-[#0066cc] hover:underline">Soldo ↗</a>
-          </p>
-          <p class="text-sm text-text-tertiary mb-3">London | Hybrid</p>
-          
-          <p class="mb-3">
-            Soldo is a cloud-based B2B SaaS spend management platform available via the web console and mobile app, that empowers finance professionals to manage, track, and monitor company and employee expenses efficiently.
-          </p>
-          <p class="mb-3">
-            Within this dynamic ecosystem, I contribute as part of the Experience Foundation Team, focusing on building, evolving, and promoting the Prisma Design System to drive efficiency and ensure consistency across all levels.
-          </p>
-
-          <p class="font-medium text-text-primary mb-2">Key contributions include:</p>
-          <ul class="list-disc ml-6 space-y-1.5">
-            <li>Leading projects and mentoring designers to boost team productivity.</li>
-            <li>Establish and track design system metrics.</li>
-            <li>Optimising design operations, workflows, and documentation for streamlined project execution.</li>
-            <li>Documenting and standardising design system processes to enhance team efficiency.</li>
-            <li>Providing resources like patterns, best practices, and templates to simplify processes and save time.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Experience item Soldo 1 -->
-    <div>
-      <div class="flex flex-col sm:flex-row sm:items-start sm:gap-6">
-        <div class="text-text-tertiary w-[190px] shrink-0 mb-1 sm:mb-0">2022 — 2023t</div>
-        <div class="flex-1">
-          <p class="text-text-primary font-medium leading-snug">
-            UI Designer & Design System contributor at 
-            <a href="https://www.soldo.com/en-eu/" class="text-[#0066cc] hover:underline">Soldo ↗</a>
-          </p>
-          <p class="text-sm text-text-tertiary mb-3">London | Remote</p>
-          
-          <p class="mb-3">
-            Performed two main roles: UI Designer and Design System contributor. As a UI Designer in the Finance and Accounting squad, I created user interfaces that met the needs of both the business and users, collaborating with Front-end Developers for seamless implementation.
-          </p>
-          <p class="mb-3">
-            On the Design System side, I contributed to a federated model by strategically architecting component libraries, comprehensive design system documentation, and assisting fellow designers in streamlining their workflows and optimising their design processes.
-          </p>
-        </div>
-      </div>
-
-  </div>
-</section>
-
-
-      <!-- EXPERIENCE -->
       <section>
-        <h2 class="text-text-primary">Work Experience</h2>
-        <div class="space-y-6">
+        <h2 class="text-text-primary mb-5">Work Experience</h2>
+        <div class="space-y-16"> <!-- Increased vertical spacing -->
+
+          <!-- Experience item: Soldo 2 -->
           <div>
-            <div class="text-text-tertiary mb-1">2023 — Present</div>
-            <p class="text-text-primary font-medium">Senior Product Designer – Design System at <a href="https://www.soldo.com/en-eu/" class="text-[#0066cc] hover:underline">Soldo</a></p>
-            <p class="text-sm text-text-tertiary mb-1">London · Hybrid</p>
-            <p>Contributing to the Experience Foundation Team to build and evolve the Prisma Design System. Leading design operations,
-              mentoring designers, establishing metrics, and ensuring scalable consistency across all levels.</p>
+            <div class="flex flex-col sm:flex-row sm:items-start sm:gap-6">
+              <div class="text-text-tertiary w-[190px] shrink-0 mb-1 sm:mb-0">2023 — Present</div>
+              <div class="flex-1">
+                <p class="text-text-primary font-medium leading-snug">
+                  Senior Product Designer - Design System at
+                  <a href="https://www.soldo.com/en-eu/" class="text-[#0066cc] hover:underline">Soldo ↗</a>
+                </p>
+                <p class="text-sm text-text-tertiary mb-3">London | Hybrid</p>
+                <p class="mb-3">
+                  Soldo is a cloud-based B2B SaaS spend management platform available via the web console and mobile app, that empowers finance professionals to manage, track, and monitor company and employee expenses efficiently.
+                </p>
+                <p class="mb-3">
+                  Within this dynamic ecosystem, I contribute as part of the Experience Foundation Team, focusing on building, evolving, and promoting the Prisma Design System to drive efficiency and ensure consistency across all levels.
+                </p>
+                <p class="font-medium text-text-primary mb-2">Key contributions include:</p>
+                <ul class="list-disc ml-6 space-y-1.5">
+                  <li>Leading projects and mentoring designers to boost team productivity.</li>
+                  <li>Establish and track design system metrics.</li>
+                  <li>Optimising design operations, workflows, and documentation for streamlined project execution.</li>
+                  <li>Documenting and standardising design system processes to enhance team efficiency.</li>
+                  <li>Providing resources like patterns, best practices, and templates to simplify processes and save time.</li>
+                </ul>
+              </div>
+            </div>
           </div>
 
+          <!-- Experience item: Soldo 1 -->
           <div>
-            <div class="text-text-tertiary mb-1">2022 — 2023</div>
-            <p class="text-text-primary font-medium">UI Designer & Design System Contributor at <a href="https://www.soldo.com/en-eu/" class="text-[#0066cc] hover:underline">Soldo</a></p>
-            <p class="text-sm text-text-tertiary mb-1">London · Remote</p>
-            <p>Designed interfaces for finance products and contributed to the federated design system model, improving cross-squad efficiency and UI consistency.</p>
+            <div class="flex flex-col sm:flex-row sm:items-start sm:gap-6">
+              <div class="text-text-tertiary w-[190px] shrink-0 mb-1 sm:mb-0">2022 — 2023</div>
+              <div class="flex-1">
+                <p class="text-text-primary font-medium leading-snug">
+                  UI Designer & Design System contributor at
+                  <a href="https://www.soldo.com/en-eu/" class="text-[#0066cc] hover:underline">Soldo ↗</a>
+                </p>
+                <p class="text-sm text-text-tertiary mb-3">London | Remote</p>
+                <p class="mb-3">
+                  Performed two main roles: UI Designer and Design System contributor. As a UI Designer in the Finance and Accounting squad, I created user interfaces that met the needs of both the business and users, collaborating with Front-end Developers for seamless implementation.
+                </p>
+                <p class="mb-3">
+                  On the Design System side, I contributed to a federated model by strategically architecting component libraries, comprehensive design system documentation, and assisting fellow designers in streamlining their workflows and optimising their design processes.
+                </p>
+              </div>
+            </div>
           </div>
 
+          <!-- Experience item: Play -->
           <div>
-            <div class="text-text-tertiary mb-1">2017 — 2022</div>
-            <p class="text-text-primary font-medium">UX/UI Designer at Play Consulting</p>
-            <p class="text-sm text-text-tertiary mb-1">London · Hybrid</p>
-            <p>Worked with clients like PWC, Unilever, and NHS on enterprise learning and engagement platforms.</p>
+            <div class="flex flex-col sm:flex-row sm:items-start sm:gap-6">
+              <div class="text-text-tertiary w-[190px] shrink-0 mb-1 sm:mb-0">2017 — 2022</div>
+              <div class="flex-1">
+                <p class="text-text-primary font-medium leading-snug">UX/UI Designer at Play Consulting</p>
+                <p class="text-sm text-text-tertiary mb-3">London | Hybrid</p>
+                <p class="mb-3">
+                  Play was a VC-backed startup founded by former PlayStation executives, specialised in helping companies rapidly shape, launch, and validate product propositions. By applying game theory, we drove early adoption and high user engagement.
+                </p>
+                <p class="mb-3">
+                  I collaborated with clients such as PWC, Unilever, Mars, NHS, and KPMG on B2B and B2C propositions, delivering native and progressive mobile app experiences, as well as prototypes to secure project buy-in.
+                </p>
+              </div>
+            </div>
           </div>
+
+          <!-- Experience item: Muugen -->
+          <div>
+            <div class="flex flex-col sm:flex-row sm:items-start sm:gap-6">
+              <div class="text-text-tertiary w-[190px] shrink-0 mb-1 sm:mb-0">2016 — 2017</div>
+              <div class="flex-1">
+                <p class="text-text-primary font-medium leading-snug">
+                  Graphic Designer / Producer / Video Editor Freelancer at
+                  <a href="https://vimeo.com/muugenstudios" class="text-[#0066cc] hover:underline">Muugen Studio ↗</a>
+                </p>
+                <p class="text-sm text-text-tertiary mb-3">London | Remote</p>
+                <p class="mb-3">
+                  Spent a year gaining experience across various roles in the digital/creative industry, including video editing, production, and applying graphic design expertise to assist clients with brand identity development.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience item: Fuse 2 -->
+          <div>
+            <div class="flex flex-col sm:flex-row sm:items-start sm:gap-6">
+              <div class="text-text-tertiary w-[190px] shrink-0 mb-1 sm:mb-0">2014 — 2016</div>
+              <div class="flex-1">
+                <p class="text-text-primary font-medium leading-snug">Web Designer at Fuse</p>
+                <p class="text-sm text-text-tertiary mb-3">London | On-site</p>
+                <p class="mb-3">
+                  The Fuse learning platform is a cloud-based B2B, cross-platform solution designed to enhance workforce capabilities through knowledge sharing and collaboration. As part of the Implementation Team, I designed and coded bespoke user experiences on clients’ instances.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience item: Fuse 1 -->
+          <div>
+            <div class="flex flex-col sm:flex-row sm:items-start sm:gap-6">
+              <div class="text-text-tertiary w-[190px] shrink-0 mb-1 sm:mb-0">2013 — 2014</div>
+              <div class="flex-1">
+                <p class="text-text-primary font-medium leading-snug">Digital Media Designer at Fuse</p>
+                <p class="text-sm text-text-tertiary mb-3">London | On-site</p>
+                <p class="mb-3">
+                  Worked on different types of digital content, including graphics, videos, infographics, ads, presentations, and animations, tailored to each client's Fuse platform and supporting the Marketing department with campaign assets.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience item: Tom Price -->
+          <div>
+            <div class="flex flex-col sm:flex-row sm:items-start sm:gap-6">
+              <div class="text-text-tertiary w-[190px] shrink-0 mb-1 sm:mb-0">2012 — 2012</div>
+              <div class="flex-1">
+                <p class="text-text-primary font-medium leading-snug">Creative Assistant Internship at Tom Price</p>
+                <p class="text-sm text-text-tertiary mb-3">London | On-site</p>
+                <p class="mb-3">
+                  I had the honor of joining Tom Price’s team, contributing to large-scale projects for private clients and global brands, while gaining hands-on experience in the creative process, including material selection and transformation.
+                </p>
+                <p class="mb-3">
+                  One standout project was the <a href="http://www.tom-price.com/pp-trysting-tree-bloomberg">PP Trysting Tree at Bloomberg London</a> – a complex and dynamic semi-permanent installation spanning four glass meeting rooms.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -258,15 +295,14 @@
         <p class="text-text-primary font-medium">Bachelor’s Degree in Design</p>
         <p class="text-sm text-text-tertiary">University of Aveiro</p>
       </section>
+
     </main>
   </div>
 
   <script>
-    // Generate compact PDF
     document.getElementById("download-btn").addEventListener("click", () => {
       const content = document.getElementById("profile-content").cloneNode(true);
 
-      // Fit only 3 entries per section
       content.querySelectorAll("section").forEach(section => {
         const divs = section.querySelectorAll("div:not(:has(h2))");
         if (divs.length > 3) divs.forEach((div, i) => i >= 3 && div.remove());
@@ -274,7 +310,6 @@
         if (lis.length > 3) lis.forEach((li, i) => i >= 3 && li.remove());
       });
 
-      // Compact styles for PDF export
       content.style.fontSize = "12px";
       content.style.lineHeight = "1.3";
       content.querySelectorAll("section").forEach(s => {
