@@ -52,22 +52,15 @@
       margin-bottom: 1.75rem;
     }
 
-    /* 🌈 Animated Rainbow Download Button */
-    #download-btn {
+    /* 🌈 Rainbow Button (Say hi) */
+    .rainbow-btn {
       position: relative;
-      margin-top: 0.8rem;
-      padding: 8px 16px;
-      font-size: 14px;
-      font-weight: 500;
-      color: #333;
-      background: transparent;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
       z-index: 1;
+      background: transparent;
+      color: #333;
       overflow: hidden;
     }
-    #download-btn::before {
+    .rainbow-btn::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -94,8 +87,19 @@
       0% { background-position: 0% 50%; }
       100% { background-position: 400% 50%; }
     }
-    #download-btn:hover::before {
+    .rainbow-btn:hover::before {
       filter: brightness(1.2);
+    }
+
+    /* 🩶 Clean neutral button (Download resume) */
+    .clean-btn {
+      background: transparent;
+      border: none;
+      color: #1a1a1a;
+      transition: color 0.2s ease-in-out;
+    }
+    .clean-btn:hover {
+      color: #555;
     }
   </style>
 </head>
@@ -106,16 +110,26 @@
     <header class="mb-12">
       <div class="flex gap-6 items-center">
         <img src="images/profilePhoto.jpg" alt="Daniela Picão" class="w-[132px] h-[132px] rounded-full" loading="lazy" />
-        <div>
+        <div class="flex-1">
           <h1 class="text-2xl mb-1 text-text-primary">Daniela Picão</h1>
-          <p class="text-text-secondary">Sr. Product Designer in London, UK</p>
-          <button id="download-btn">Download resume</button>
+          <p class="text-text-secondary mb-2">Sr. Product Designer in London, UK</p>
+
+          <div class="flex gap-2">
+            <a href="mailto:danielapicao.work@gmail.com"
+               class="rainbow-btn inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200">
+              Get in touch
+            </a>
+
+            <button id="download-btn"
+                    class="clean-btn inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg">
+              Download resume
+            </button>
+          </div>
         </div>
       </div>
     </header>
 
     <main class="space-y-8">
-
       <!-- ABOUT -->
       <section>
         <p class="leading-[1.7] text-text-secondary">
@@ -345,7 +359,7 @@
   </div>
 </section>
       
-  <script>
+   <script>
     document.getElementById("download-btn").addEventListener("click", () => {
       const content = document.getElementById("profile-content").cloneNode(true);
 
@@ -369,7 +383,7 @@
 
       const opt = {
         margin: 0.25,
-        filename: "Daniela-Picao-Portfolio.pdf",
+        filename: "Daniela-Picao-Resume.pdf",
         image: { type: "jpeg", quality: 1 },
         html2canvas: { scale: 2 },
         jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
