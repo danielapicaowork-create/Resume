@@ -348,6 +348,20 @@
        RESPONSIVE: MOBILE (≤ 600px)
        --------------------------------------------------- */
     @media (max-width: 600px) {
+      
+      /* Move top image above text */
+  .hero-section {         
+    display: flex;
+    flex-direction: column;   /* stack image on top */
+  }
+
+  .hero-section img {
+    order: -1;               /* forces image to appear first */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    align-self: flex-start;   /* left aligned */
+  }
 
       body {
         font-size: 0.9rem;
