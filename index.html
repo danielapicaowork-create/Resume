@@ -395,13 +395,19 @@ section {
   h2 { font-size: 1.35rem !important; }
 
   .gallery-track {
-    gap: 0.6rem !important;
+     gap: 0.8rem !important;
+    padding-left: var(--mobile-horz-gutter) !important;
+      scroll-snap-type: x mandatory;
+
   }
 
   .thumb {
-    width: 100% !important;
+    flex: 0 0 75% !important; /* shows 1 full + some of next */
     height: auto !important;
-    aspect-ratio: 1 / 1 !important;
+    aspect-ratio: 4 / 3 !important; /* optional: looks cleaner */
+    border-radius: 14px !important;
+    scroll-snap-align: start;
+
   }
 
   .gallery-modal__img {
