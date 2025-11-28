@@ -339,7 +339,36 @@ section {
 /* ---------------------------------------------------
    RESPONSIVE MOBILE ≤600px
 --------------------------------------------------- */
-@media (max-width: 600px) {
+
+   .flex-1 {
+    min-width: 0;            /* CRUCIAL: allows flex item to shrink instead of forcing overflow */
+    box-sizing: border-box;
+  }
+   .text-text-tertiary.w-\[160px\],
+  .text-text-tertiary.w-\[180px\],
+  .text-text-tertiary.sm\:w-\[160px\] {
+    min-width: 0;
+    width: auto !important;
+  }
+   .flex-1 p a,
+  .flex-1 p > a,
+  .flex-1 a {
+    display: inline;            /* keep anchors inline with surrounding text */
+    white-space: normal;        /* allow wrapping at spaces only when necessary */
+    max-width: 100%;            /* never exceed container width */
+    overflow-wrap: anywhere;    /* break long tokens if no natural break exists */
+    word-break: break-word;     /* fallback for super-long strings (URLs etc.) */
+  }
+   .flex-1 a.nowrap {
+    white-space: nowrap;
+    overflow: visible;
+  }
+   #profile-content,
+  main,
+  section {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
 
   /* keep sections (below hero) using the same horizontal gutter */
   section {
